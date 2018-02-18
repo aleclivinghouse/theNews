@@ -1,0 +1,40 @@
+{% load staticfiles %}
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>theNews</title>
+    <link rel="stylesheet" href="{% static 'css/foundation.css' %}">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Tauri|Karla" rel="stylesheet">
+   <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+   <link rel="stylesheet"  href="{% static 'css/app.css' %}">
+    <!-- <link rel="stylesheet" href="css/jquery.modal.css"> -->
+
+    </head>
+  <body>
+
+    {% block content %}
+    {% endblock %}
+
+
+
+
+<!-- stuff at the bottom -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="{% static 'js/vendor/jquery.js' %}"></script>
+<script src="{% static 'js/vendor/what-input.js' %}"></script>
+<script src="{% static 'js/jquery-match-height-master-2/dist/jquery.matchHeight-min.js'  %}"></script>
+<script src="{% static 'js/parallax.js'  %}"></script>
+<script src="{% static 'js/vendor/foundation.js'  %}"></script>
+<script src="{% static 'js/app.js'  %}"></script>
+<script src="{% static 'js/twitter.js'  %}"></script>
+<script src="{% static 'js/jquery.modal.js'  %}" charset="utf-8"></script>
+<script src="{% static 'js/jquery.scrollify.js'  %}" charset="utf-8"></script>
+<script type='text/javascript' src="{% static 'scripts/gen_validatorv31.js'  %}"></script>
+
+
+</body>
+</html>

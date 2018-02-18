@@ -1,0 +1,81 @@
+
+.third-title {
+  position: absolute;
+  bottom: 30%;
+  left: 15%;
+  font-size: 14px;
+    color: dodgerblue;
+    font-weight: bold;
+    opacity: 1;
+    text-shadow:  2px 1px black;
+}
+
+h3.promoted-title {
+  position: absolute;
+  bottom: 30%;
+  left: 20%;
+  font-size: 28px;
+  font-weight: bold;
+    color: dodgerblue;
+    text-shadow:  2px 1px black;
+
+
+}
+
+.second-title {
+  position: absolute;
+  bottom: 30%;
+  left: 15%;
+  font-size: 14px;
+  display: block;
+  color: dodgerblue;
+  font-weight: bold;
+  text-shadow: 2px 1px black;
+
+}
+
+.third-wrapper{
+  position: relative;
+  margin-top: 30px;
+}
+
+.second-wrapper{
+  position: relative;
+}
+
+
+.square-wrapper {
+    position: relative;
+}
+
+.square-title {
+  position: absolute;
+  bottom: 30%;
+  left: 10%;
+  font-size: 18px;
+  display: inline-block;
+  color: dodgerblue;
+  font-weight: bold;
+  text-shadow: 2px 1px  black;
+}
+
+.promoted-wrapper {
+  position: relative;
+}
+
+
+
+
+.promoted-wrapper {
+  postion: relative;
+}
+
+img.author-pic{
+  display: block;
+  padding-bottom: 50px;
+  margin: auto;
+}
+
+.author-heading {
+  text-align: center;
+}

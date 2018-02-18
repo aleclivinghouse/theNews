@@ -1,0 +1,311 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<style>
+  /*icon styles*/
+  .fi-social-facebook {
+    color: dodgerblue;
+    font-size: 2rem;
+  }
+  .fi-social-youtube {
+    color: red;
+    font-size: 2rem;
+  }
+
+
+  .fi-social-pinterest {
+    color: darkred;
+    font-size: 2rem;
+  }
+  i.fi-social-instagram {
+    color: brown;
+    font-size: 2rem;
+  }
+  i.fi-social-tumblr {
+    color: navy;
+    font-size: 2rem;
+  }
+  .fi-social-twitter {
+    color: skyblue;
+    font-size: 2rem;
+  }
+
+</style>
+
+
+  </div>
+  <!-- Search Bar End -->
+<!-- <div>
+    <form method="POST" action = "/post_list">
+      {% csrf_token %}
+      <ul>
+      <li><input type="search" name="q" placeholder="search posts" size="20" width=20px;></li>
+        <li><input type="submit" value="search" class="button"></li>
+      </ul>
+    </form>
+</div> -->
+
+
+<div class="top-bar">
+   <div class="top-bar-left">
+     <!-- <ul class="menu">
+       <li><a href="#">One</a></li>
+       <li><a href="#">Two</a></li>
+       <li><a href="#">Three</a></li>
+       <li><a href="#">Four</a></li>
+     </ul> -->
+   </div>
+   <div class="top-bar-left">
+
+       <form method="POST" action = "/post_list">
+         {% csrf_token %}
+          <ul class="menu">
+       <li><input type="search" placeholder="Search" name="q" placeholder="search posts"></li>
+       <li><input type="submit" class="button" value="search"></li>
+          </ul>
+      </form>
+
+   </div>
+ </div>
+
+
+
+
+
+
+
+  <div class="top-bar" id="main-menu">
+    <ul class="menu vertical medium-horizontal expanded medium-text-center" data-responsive-menu="drilldown medium-dropdown">
+      {% for x in categories %}
+      <li><a href="the_category/{{x.id}}">{{x.name}}</a>
+        {% endfor %}
+    </ul>
+  </div>
+
+</header>
+
+<br>
+
+<div class="row">
+  <div class="medium-8 columns">
+    <div class="promoted-wrapper">
+        <h3 class="promoted-title">{{headline.title}}</h3>
+    <a href="/story/{{headline.id}}"><img src='{{headline.promotedImage.url}}' class="tint"></a>
+  </div>
+  </div>
+  <div class="medium-4 columns">
+    <div class = "second-wrapper">
+    <h3 class="second-title">{{second.title}}</h3>
+    <a href="/story/{{second.id}}"><img src="{{second.promotedImage.url}}" alt="article promo image" class="tint" width="400px"></a>
+    </div>
+      <div class ="third-wrapper">
+      <h3 class="third-title">{{third.title}}</h3>
+    <a href="/story/{{second.id}}"><img src="{{third.promotedImage.url}}" alt="article promo image" class="tint" width="400px"></a>
+      </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="row column">
+  <h4 style="margin: 0;" class="text-center">BREAKING NEWS</h4>
+</div>
+
+<hr>
+
+<div class="row small-up-3 medium-up-4 large-up-5 square-row">
+
+  <div class="column">
+     <div class="square-wrapper">
+      <h5 class="square-title">{{breaking1.title}}</h5>
+    <a href="/story/{{breaking1.id}}"><img src="{{breaking1.tallImage.url}}"></a>
+    </div>
+  </div>
+
+  <div class="column">
+     <div class="square-wrapper">
+       <h5 class="square-title">{{breaking2.title}}</h5>
+    <a href="/story/{{breaking2.id}}"><img src="{{breaking2.tallImage.url}}" alt="image for article"></a>
+      </div>
+  </div>
+
+  <div class="column">
+    <div class="square-wrapper">
+      <h5 class="square-title">{{breaking3.title}}</h5>
+    <a href="/story/{{breaking3.id}}"><img src="{{breaking3.tallImage.url}}" alt="image for article"></a>
+    </div>
+  </div>
+
+  <div class="column show-for-medium">
+     <div class="square-wrapper">
+        <h5 class="square-title">{{breaking4.title}}</h5>
+    <a href="/story/{{breaking4.id}}"><img src="{{breaking4.tallImage.url}}" alt="image for article"></a>
+   </div>
+  </div>
+
+  <div class="column show-for-large">
+     <div class="square-wrapper">
+    <h5 class="square-title">{{breaking5.title}}</h5>
+      <a href="/story/{{breaking5.id}}"><img src="{{breaking5.tallImage.url}}" alt="image for article"></a>
+  </div>
+  </div>
+
+</div>
+
+<hr>
+
+<div class="row column">
+  <h4 style="margin: 0;" class="text-center">LATEST STORIES</h4>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="large-8 columns" style="border-right: 1px solid #E3E5E8;">
+
+  <article>
+   {% for x in latest %}
+    <div class="row">
+      <div class="large-6 columns">
+        <p><a href="/story/{{x.id}}"><img src="{{x.promotedImage.url}}" alt="image for article" alt="article preview image" width="600px" height: "300px"></p>
+      </div>
+      <div class="large-6 columns">
+        <h5><a href="#">{{x.title}}</a></h5>
+        <p>
+        <a href="/author/{{x.author.id}}"<span><i class="fi-torso"> By {{x.author.first_name}} {{x.author.last_name}}&nbsp;&nbsp;</i></a></span>
+          <span><i class="fi-calendar"> {{x.created_at}} </i></span>
+        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae impedit beatae, ipsum delectus aperiam nesciunt magni facilis ullam.</p>
+      </div>
+    </div>
+    {% endfor %}
+    <hr>
+
+    <hr>
+{% if latest.has_other_pages %}
+    <ul class="pagination" role="navigation" aria-label="Pagination">
+      {% if latest.has_previous %}
+       <li><a href="?page={{ users.previous_page_number }}">&laquo;</a></li>
+     {% else %}
+       <li class="disabled"><span>&laquo;</span></li>
+     {% endif %}
+     {% for i in latest.paginator.page_range %}
+       {% if latest.number == i %}
+         <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+       {% else %}
+         <li><a href="?page={{ i }}">{{ i }}</a></li>
+       {% endif %}
+     {% endfor %}
+     {% if latest.has_next %}
+       <li><a href="?page={{ latest.next_page_number }}">&raquo;</a></li>
+     {% else %}
+       <li class="disabled"><span>&raquo;</span></li>
+     {% endif %}
+
+    </ul>
+{% endif %}
+    </article>
+
+  </div>
+
+  <div class="large-4 columns">
+
+    <aside>
+
+      <div class="row small-up-3">
+
+        <div class="column text-center">
+          <i class="fi-social-facebook"></i>
+          <h6 class="facebook-followers">56,009</h6>
+          <p><small>FOLLOWERS</small></p>
+          <br>
+        </div>
+
+        <!-- <div class="column text-center">
+          <i class="fi-social-twitter"></i>
+          <h6 class="twitter-followers">number</h6>
+          <p><small>FOLLOWERS</small></p>
+          <br>
+        </div>
+
+        <div class="column text-center">
+          <i class="fi-social-instagram"></i>
+          <h6>34,099</h6>
+          <p><small>FOLLOWERS</small></p>
+          <br>
+        </div>
+
+        <div class="column text-center">
+          <i class="fi-social-tumblr"></i>
+          <h6>13,765</h6>
+          <p><small>FOLLOWERS</small></p>
+        </div>
+
+        <div class="column text-center">
+          <i class="fi-social-pinterest"></i>
+          <h6>9,283</h6>
+          <p><small>FOLLOWERS</small></p>
+        </div>
+
+        <div class="column text-center">
+          <i class="fi-social-youtube"></i>
+          <h6 class="youtube-followers">99,000</h6>
+          <p><small>FOLLOWERS</small></p>
+        </div> -->
+
+      </div>
+
+      <br>
+
+      <div class="row column">
+        <p class="lead">Featured Author</p>
+        <p><img src="{{featured_author.profilePic.url}}" alt="advertisement of ShamWow"></p>
+      </div>
+
+      <br>
+
+      <div class="row column">
+        <p class="lead">Contributions</p>
+            {% for x in authors_stories %}
+        <div class="media-object">
+          <div class="media-object-section">
+            <img class="thumbnail" src= "{{x.tallImage.url}}" width="100px">
+          </div>
+          <div class="media-object-section">
+            <h5>{{x.title}}</h5>
+          </div>
+        </div>
+            {% endfor %}
+
+      </div>
+
+    </aside>
+
+  </div>
+</div>
+
+<footer>
+  <div class="row expanded callout secondary">
+
+
+  </div>
+  <div class="row expanded">
+
+    <div class="medium-6 columns">
+      <ul class="menu">
+        <li><a href="#">Legal</a></li>
+        <li><a href="#">Partner</a></li>
+        <li><a href="#">Explore</a></li>
+      </ul>
+    </div>
+
+    <div class="medium-6 columns">
+      <ul class="menu align-right">
+        <li class="menu-text">Copyright © 2099 Random Mag</li>
+      </ul>
+    </div>
+  </div>
+
+</footer>
+{% endblock %}

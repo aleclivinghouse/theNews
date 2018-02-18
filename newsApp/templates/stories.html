@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row medium-8 large-7 columns">
+     <div class="blog-post">
+       <h3>{{story.title}} <small>3/6/2015</small></h3>
+       <img class="thumbnail" src="{{story.promotedImage.url}}">
+       <p>{{story.description}}</p>
+       <div class="callout">
+         <ul class="menu simple">
+           <li><a href="/author/{{story.author.id}}">{{story.author.first_name}} {{story.author.last_name}}</a></li>
+
+         </ul>
+       </div>
+     </div>
+{% endblock %}

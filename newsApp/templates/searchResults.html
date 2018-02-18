@@ -1,0 +1,27 @@
+
+
+
+
+
+{% extends 'base.html' %}
+{% block content %}
+<div class="row medium-8 large-7 columns">
+         <!-- <h1 class="author-heading">Stories By: {{author.first_name}} {{author.last_name}}</h1>
+         <div class="profilepic-wrapper">
+         <img src='{{author.profilePic.url}}' class="author-pic" > -->
+         </div>
+   {% for x in object_list %}
+     <div class="blog-post">
+
+       <h3>{{x.title}}<small>{{x.created_at}}</small></h3>
+       <img class="thumbnail" src="{{x.promotedImage.url}}">
+       <p>{{x.description}}</p>
+       <div class="callout">
+         <ul class="menu simple">
+           <li><a href="/author/{{x.author.id}}">{{x.author.first_name}} {{x.author.last_name}}</a></li>
+
+         </ul>
+       </div>
+     </div>
+     {% endfor %}
+{% endblock %}
